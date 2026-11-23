@@ -2,111 +2,294 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Abhishek Gautam – AI Student</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhishek Gautam – AI Student & Aspiring AI Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#f5f7fa; --surface:#ffffff; --ink:#14213d; --muted:#5b6578; --line:#d9dfe8; --accent:#1d4ed8; --accent-ink:#ffffff;
-  --side:#14213d; --side-ink:#eef2f8; --side-muted:#a9b4c8;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  color-scheme:light;
+:root{--bg:#07080b;--panel:#0e1015;--line:#1d2028;--ink:#f3f4f6;--muted:#8a8f9a;--soft:#c4c8d0;--glow:rgba(255,255,255,.07);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:20;backdrop-filter:blur(14px);background:rgba(7,8,11,.6);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-weight:300;font-size:1.6rem;letter-spacing:-.04em}
+.logo b{font-weight:700}
+.menu{display:flex;gap:36px;list-style:none;margin:0;padding:0}
+.menu a{font-size:.9rem;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s}
+.menu a:hover,.menu a.on{color:var(--ink)}
+.menu a.on{border-color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid #2b2f3a;border-radius:999px;font-size:.88rem;font-weight:500;transition:background .2s,border-color .2s}
+.pill:hover{background:var(--glow);border-color:#4a4f5d}
+.burger{display:none;background:none;border:1px solid #2b2f3a;color:var(--ink);border-radius:10px;padding:8px 12px;font-size:1rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;width:100%;padding-top:100px;padding-bottom:140px}
+.hello{display:inline-flex;gap:8px;align-items:center;padding:7px 16px;border:1px solid #2b2f3a;border-radius:999px;background:rgba(255,255,255,.03);font-size:.85rem;color:var(--soft)}
+h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:1.02;letter-spacing:-.04em;font-weight:700;margin:26px 0 10px}
+h1 span{color:#6f737d}
+.role{font-size:clamp(1.4rem,3.2vw,2.3rem);font-weight:300;margin:0 0 22px;min-height:1.3em}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--ink);margin-left:6px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.tag{color:var(--soft);max-width:30em;margin:0 0 34px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.92rem;border:1px solid #333845;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:#eceef2;color:#0a0b0e;border-color:#eceef2}
+.btn.solid:hover{background:#fff}
+.art{position:relative;aspect-ratio:1;width:100%;max-width:560px;justify-self:center}
+.art svg{width:100%;height:100%;overflow:visible}
+.mount{position:absolute;left:0;right:0;bottom:0;height:260px;pointer-events:none}
+.mount svg{width:100%;height:100%;display:block}
+.scroll{position:absolute;left:28px;bottom:36px;z-index:2;display:flex;align-items:center;gap:14px;color:var(--muted);font-size:.8rem}
+.scroll i{display:block;width:44px;height:1px;background:#3a3e4a}
+.in{opacity:0;transform:translateY(18px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.in:nth-child(2){animation-delay:.12s}.in:nth-child(3){animation-delay:.24s}.in:nth-child(4){animation-delay:.36s}.in:nth-child(5){animation-delay:.48s}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-12px)}}
+.moon{animation:float 9s ease-in-out infinite}
+
+/* sections */
+section{position:relative;padding:110px 0}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.82rem;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:#3a3e4a}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.12;letter-spacing:-.03em;font-weight:600;margin:0 0 22px}
+.about{display:grid;grid-template-columns:1.1fr .8fr;gap:60px;align-items:center}
+.about p{color:var(--soft);max-width:34em}
+.facts{display:flex;flex-wrap:wrap;gap:26px;margin:30px 0 34px;font-size:.88rem;color:var(--soft)}
+.facts div{display:flex;flex-direction:column;gap:2px}
+.facts small{color:var(--muted);font-size:.78rem}
+.photo{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:var(--panel);box-shadow:0 40px 80px rgba(0,0,0,.6)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.02)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,8,11,.55))}
+.spark{position:absolute;right:-16px;top:-16px;width:44px;height:44px;z-index:2}
+
+/* skills */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;background:linear-gradient(180deg,#0f1117,#0b0c10);border:1px solid var(--line);border-radius:22px;padding:28px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:#3a3f4c;transform:translateY(-4px)}
+.card h3{margin:0 0 4px;font-size:1.05rem;font-weight:600}
+.card p{margin:0;color:var(--muted);font-size:.9rem}
+.tile{width:54px;height:54px;border-radius:16px;border:1px solid #262a34;background:#12141b;display:grid;place-items:center;font-weight:700;font-size:.95rem;margin-bottom:18px;color:var(--soft)}
+.bar{margin-top:18px;height:5px;border-radius:9px;background:#181b23;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#5d6270,#f3f4f6)}
+.lvl{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-top:14px}
+
+/* projects */
+.top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.proj{padding:0;overflow:hidden}
+.thumb{height:190px;position:relative;display:grid;place-items:center;border-bottom:1px solid var(--line);overflow:hidden}
+.t1{background:radial-gradient(circle at 70% 20%,#2a2e3a,transparent 55%),linear-gradient(160deg,#14161d,#08090c)}
+.t2{background:radial-gradient(circle at 30% 30%,#1c2a33,transparent 55%),linear-gradient(160deg,#101319,#08090c)}
+.t3{background:radial-gradient(circle at 60% 70%,#2c2630,transparent 55%),linear-gradient(160deg,#13121a,#08090c)}
+.thumb strong{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;text-align:center;line-height:1.15}
+.thumb em{display:block;font-style:normal;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:6px}
+.pbody{padding:22px 26px 26px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:.74rem;color:var(--soft);border:1px solid #2a2e38;border-radius:999px;padding:4px 12px}
+
+/* contact */
+.contact{text-align:center;border:1px solid var(--line);border-radius:36px;padding:90px 28px;background:radial-gradient(ellipse at 50% 0,#1a1d26,transparent 65%),#0a0b0f}
+.contact h2{font-size:clamp(2rem,5vw,3.6rem);max-width:12em;margin:0 auto 18px}
+.contact p{color:var(--soft);margin:0 auto 34px;max-width:30em}
+footer{position:relative;z-index:1;text-align:center;color:var(--muted);font-size:.82rem;padding:36px 0 50px}
+
+@media (max-width:900px){
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .art{max-width:340px;order:-1;margin-top:20px}
+  .grid3{grid-template-columns:1fr 1fr}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:#0a0b0f;border-bottom:1px solid var(--line);padding:10px 28px 20px}
+  .menu.open{display:flex}
+  .menu a{display:block;padding:14px 0;border:0}
+  .burger{display:block}
+  nav .pill{display:none}
+  .photo{max-width:420px}
+  .scroll{display:none}
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1522; --surface:#151e2e; --ink:#e8edf6; --muted:#9aa6bb; --line:#26324a; --accent:#6ea0ff; --accent-ink:#0e1522;
-    --side:#0a101b; --side-ink:#eef2f8; --side-muted:#8f9bb2; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0e1522; --surface:#151e2e; --ink:#e8edf6; --muted:#9aa6bb; --line:#26324a; --accent:#6ea0ff; --accent-ink:#0e1522;
-  --side:#0a101b; --side-ink:#eef2f8; --side-muted:#8f9bb2; color-scheme:dark;
-}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh}
-aside{background:var(--side);color:var(--side-ink);padding:56px 36px;position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
-.avatar{width:96px;height:96px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 2rem "Source Serif 4",Georgia,serif;margin-bottom:24px}
-aside h1{font:700 2rem/1.15 "Source Serif 4",Georgia,serif;margin:0 0 8px}
-aside .role{margin:0;color:var(--side-muted)}
-.facts{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:10px;font-size:.95rem;color:var(--side-muted)}
-.facts strong{color:var(--side-ink);font-weight:500}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:10px 18px;border-radius:6px;font-weight:600;text-decoration:none;border:1px solid var(--side-muted);color:var(--side-ink);font-size:.95rem}
-.btn:hover{border-color:var(--side-ink)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-main{padding:72px clamp(24px,6vw,88px);max-width:880px}
-section+section{margin-top:64px}
-h2{font:700 1.6rem/1.2 "Source Serif 4",Georgia,serif;margin:0 0 16px}
-.lead{font:600 1.5rem/1.4 "Source Serif 4",Georgia,serif;margin:0 0 24px;max-width:36em}
-p{max-width:65ch;color:var(--muted);margin:0 0 16px}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);background:var(--surface);border-radius:8px;overflow:hidden}
-.skills div{padding:20px 22px;border-right:1px solid var(--line)}
-.skills div:last-child{border-right:0}
-.skills h3{margin:0 0 6px;font-size:1rem}
-.skills p{margin:0;font-size:.95rem}
-.timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 28px 8px}
-.timeline li::before{content:"";position:absolute;left:-30px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
-.timeline h3{margin:0;font-size:1.05rem}
-.timeline .when{color:var(--muted);font-size:.9rem;margin:2px 0 6px}
-.timeline p{margin:0}
-@media (max-width:860px){
-  .layout{grid-template-columns:1fr}
-  aside{position:static;height:auto;padding:40px 24px;gap:28px}
-  main{padding:48px 24px}
-  .skills div{border-right:0;border-bottom:1px solid var(--line)}
-  .skills div:last-child{border-bottom:0}
-}
+@media (max-width:600px){.grid3{grid-template-columns:1fr}section{padding:80px 0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.in{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="layout">
-  <aside>
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="Home"><b>A</b>G</a>
+    <ul class="menu" id="menu">
+      <li><a href="#home" class="on">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="pill" href="mailto:gautamabhishek2065@gmail.com">Let’s talk &nbsp;↗</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="wrap">
     <div>
-      <div class="avatar" aria-hidden="true">AG</div>
-      <h1>Abhishek Gautam</h1>
-      <p class="role">AI Student | Aspiring AI Developer</p>
-      <ul class="facts">
-        <li><strong>Location</strong><br>Kathmandu, Nepal</li>
-        <li><strong>Focus</strong><br>Artificial Intelligence</li>
-        <li><strong>Status</strong><br>Learning and building</li>
-      </ul>
-    </div>
-    <div class="links">
-      <a class="btn primary" href="mailto:gautamabhishek2065@gmail.com">Email me</a>
-    </div>
-  </aside>
-
-  <main>
-    <section id="about">
-      <p class="lead">I’m an AI student working toward a career as an AI developer.</p>
-      <p>I’m passionate about technology, programming, and exploring the world of Artificial Intelligence.</p>
-      <p>I’m focused on learning and building personal projects, and I enjoy solving problems one step at a time.</p>
-    </section>
-
-    <section id="skills">
-      <h2>What I work with</h2>
-      <div class="skills">
-        <div><h3>Programming</h3><p>Python (Beginner), HTML &amp; CSS (Learning), JavaScript (Learning)</p></div>
-        <div><h3>Tools</h3><p>Git &amp; GitHub, VS Code, AI tools and ChatGPT</p></div>
-        <div><h3>Strengths</h3><p>Problem-solving, learning new skills, building personal projects</p></div>
+      <div class="hello in">👋 Hello, I’m</div>
+      <h1 class="in">Abhishek <span>Gautam</span></h1>
+      <p class="role in"><span id="typed"></span><span class="cursor"></span></p>
+      <p class="tag in">I’m passionate about technology, programming, and exploring the world of Artificial Intelligence. Always learning, always building.</p>
+      <div class="btns in">
+        <a class="btn solid" href="#projects">View my work ↓</a>
+        <a class="btn" href="#about">About me</a>
       </div>
-    </section>
+    </div>
+    <div class="art in" aria-hidden="true">
+      <svg viewBox="0 0 560 560">
+        <defs>
+          <radialGradient id="mg" cx="35%" cy="30%" r="80%">
+            <stop offset="0" stop-color="#e9ebef"/><stop offset=".45" stop-color="#8d919b"/><stop offset="1" stop-color="#15171d"/>
+          </radialGradient>
+          <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+          <path id="orbit" d="M 30 300 A 250 80 0 1 1 530 300 A 250 80 0 1 1 30 300"/>
+        </defs>
+        <circle cx="300" cy="250" r="260" fill="url(#halo)"/>
+        <g class="moon">
+          <circle cx="300" cy="250" r="150" fill="url(#mg)"/>
+          <circle cx="250" cy="200" r="22" fill="#000" opacity=".12"/>
+          <circle cx="345" cy="290" r="30" fill="#000" opacity=".14"/>
+          <circle cx="320" cy="180" r="12" fill="#000" opacity=".1"/>
+          <circle cx="260" cy="320" r="16" fill="#000" opacity=".1"/>
+        </g>
+        <g transform="rotate(-18 280 300)">
+          <ellipse cx="280" cy="300" rx="250" ry="80" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.2"/>
+          <circle r="4.5" fill="#fff"><animateMotion dur="14s" repeatCount="indefinite"><mpath href="#orbit"/></animateMotion></circle>
+        </g>
+        <path d="M470 90 l6 22 22 6 -22 6 -6 22 -6 -22 -22 -6 22 -6z" fill="#fff" opacity=".9"/>
+        <path d="M70 120 l3 11 11 3 -11 3 -3 11 -3 -11 -11 -3 11 -3z" fill="#fff" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll"><i></i>Scroll down ↓</div>
+  <div class="mount" aria-hidden="true">
+    <svg viewBox="0 0 1440 260" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2e37"/><stop offset="1" stop-color="#07080b"/></linearGradient>
+        <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#171920"/><stop offset="1" stop-color="#07080b"/></linearGradient>
+        <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07080b" stop-opacity="0"/><stop offset="1" stop-color="#07080b"/></linearGradient>
+      </defs>
+      <path d="M0 260V170L140 120 260 175 420 60 560 150 700 90 860 170 1000 110 1160 180 1300 130 1440 175V260z" fill="url(#m1)" opacity=".75"/>
+      <path d="M0 260V210L180 165 330 215 520 140 700 220 880 160 1060 225 1240 170 1440 215V260z" fill="url(#m2)"/>
+      <rect y="150" width="1440" height="110" fill="url(#fog)"/>
+    </svg>
+  </div>
+</header>
 
-    <section id="learning">
-      <h2>Learning path</h2>
-      <ul class="timeline">
-        <li><h3>Python</h3><div class="when">Beginner</div><p>Learning the fundamentals as a base for AI work.</p></li>
-        <li><h3>Web development</h3><div class="when">Learning</div><p>Practising HTML, CSS and JavaScript.</p></li>
-        <li><h3>Personal projects</h3><div class="when">Ongoing</div><p>Building small projects to apply what I learn, using Git and GitHub.</p></li>
-      </ul>
-    </section>
-  </main>
-</div>
+<main>
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow">About me</div>
+        <h2>A passionate learner<br>from Nepal 🇳🇵</h2>
+        <p>I’m an AI student who loves coding, exploring new technologies, and building meaningful personal projects. I’m learning step by step and I enjoy solving problems along the way.</p>
+        <div class="facts">
+          <div><span>B.Tech in AI</span><small>GCST</small></div>
+          <div><span>Lamahi, Dang</span><small>Nepal</small></div>
+          <div><span>gautamabhishek2065@gmail.com</span><small>Email</small></div>
+        </div>
+        <a class="pill" href="#skills">More about me &nbsp;→</a>
+      </div>
+      <div style="position:relative">
+        <svg class="spark" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 0 l4 18 18 4 -18 4 -4 18 -4 -18 -18 -4 18 -4z" fill="#fff" opacity=".9"/></svg>
+        <div class="photo"><img src="profile.jpg" alt="Abhishek Gautam looking at paintings in an art gallery"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="eyebrow">My skills</div>
+      <h2>Tech &amp; tools I work with</h2>
+      <div class="grid3">
+        <div class="card"><div class="tile">Py</div><h3>Python</h3><p>The base for my AI journey.</p><div class="bar"><i style="width:35%"></i></div><div class="lvl"><span>Beginner</span><span>35%</span></div></div>
+        <div class="card"><div class="tile">&lt;/&gt;</div><h3>HTML &amp; CSS</h3><p>Building clean, responsive pages.</p><div class="bar"><i style="width:50%"></i></div><div class="lvl"><span>Learning</span><span>50%</span></div></div>
+        <div class="card"><div class="tile">JS</div><h3>JavaScript</h3><p>Adding behaviour to the web.</p><div class="bar"><i style="width:30%"></i></div><div class="lvl"><span>Learning</span><span>30%</span></div></div>
+        <div class="card"><div class="tile">Git</div><h3>Git &amp; GitHub</h3><p>Version control for my projects.</p><div class="bar"><i style="width:45%"></i></div><div class="lvl"><span>Comfortable</span><span>45%</span></div></div>
+        <div class="card"><div class="tile">VS</div><h3>VS Code</h3><p>My everyday editor.</p><div class="bar"><i style="width:70%"></i></div><div class="lvl"><span>Daily use</span><span>70%</span></div></div>
+        <div class="card"><div class="tile">AI</div><h3>AI tools &amp; ChatGPT</h3><p>Learning faster with AI help.</p><div class="bar"><i style="width:65%"></i></div><div class="lvl"><span>Daily use</span><span>65%</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="top">
+        <div><div class="eyebrow">My projects</div><h2 style="margin:0">Some of my recent work</h2></div>
+        <a class="pill" href="#contact">Work with me &nbsp;→</a>
+      </div>
+      <div class="grid3">
+        <article class="card proj"><div class="thumb t1"><strong>Sunrise<br>Boys Hostel<em>Stay. Study. Grow.</em></strong></div><div class="pbody"><h3>Hostel website</h3><p>A simple, clean website for a boys’ hostel.</p><div class="tags"><span>HTML</span><span>CSS</span></div></div></article>
+        <article class="card proj"><div class="thumb t2"><strong>Portfolio<em>This website</em></strong></div><div class="pbody"><h3>Personal portfolio</h3><p>The site you’re looking at, built from scratch.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></article>
+        <article class="card proj"><div class="thumb t3"><strong>Python<br>Experiments<em>Learning by building</em></strong></div><div class="pbody"><h3>AI mini projects</h3><p>Small Python programs that build my AI foundations.</p><div class="tags"><span>Python</span><span>AI</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="eyebrow" style="justify-content:center">Contact</div>
+        <h2>Let’s build something together</h2>
+        <p>Have an idea, a question, or an opportunity? My inbox is open.</p>
+        <a class="btn solid" href="mailto:gautamabhishek2065@gmail.com">Send me an email ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Abhishek Gautam · Designed &amp; built with curiosity</footer>
+
+<script>
+// starfield
+(function(){
+  var c=document.getElementById('stars'),x=c.getContext('2d'),s=[],W,H;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight;s=[];for(var i=0;i<Math.min(160,W/8);i++)s.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,p:Math.random()*6.28,v:Math.random()*.02+.005})}
+  function draw(){x.clearRect(0,0,W,H);for(var i=0;i<s.length;i++){var a=s[i];a.p+=a.v;x.globalAlpha=.25+.5*Math.abs(Math.sin(a.p));x.fillStyle='#fff';x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill()}requestAnimationFrame(draw)}
+  size();addEventListener('resize',size);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){draw=function(){}}
+  draw();
+})();
+
+// typing
+(function(){
+  var w=['Software Engineer in the making','AI Student','Aspiring AI Developer'],el=document.getElementById('typed'),i=0,j=0,del=false;
+  w[0]='AI Student';w[1]='Aspiring AI Developer';w[2]='Python Learner';
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=w[1];return}
+  function t(){var s=w[i];el.textContent=s.slice(0,j);
+    if(!del&&j<s.length){j++;setTimeout(t,85)}
+    else if(!del){del=true;setTimeout(t,1600)}
+    else if(j>0){j--;setTimeout(t,40)}
+    else{del=false;i=(i+1)%w.length;setTimeout(t,300)}}
+  t();
+})();
+
+// mobile menu
+var b=document.getElementById('burger'),m=document.getElementById('menu');
+b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+
+// active nav link
+var links=[].slice.call(document.querySelectorAll('.menu a'));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+['home','about','skills','projects','contact'].forEach(function(id){io.observe(document.getElementById(id))});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
