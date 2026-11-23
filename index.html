@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek Gautam – AI Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --ink:#14213d; --muted:#5b6578; --line:#d9dfe8; --accent:#1d4ed8; --accent-ink:#ffffff;
+  --side:#14213d; --side-ink:#eef2f8; --side-muted:#a9b4c8;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1522; --surface:#151e2e; --ink:#e8edf6; --muted:#9aa6bb; --line:#26324a; --accent:#6ea0ff; --accent-ink:#0e1522;
+    --side:#0a101b; --side-ink:#eef2f8; --side-muted:#8f9bb2; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1522; --surface:#151e2e; --ink:#e8edf6; --muted:#9aa6bb; --line:#26324a; --accent:#6ea0ff; --accent-ink:#0e1522;
+  --side:#0a101b; --side-ink:#eef2f8; --side-muted:#8f9bb2; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh}
+aside{background:var(--side);color:var(--side-ink);padding:56px 36px;position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+.avatar{width:96px;height:96px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 2rem "Source Serif 4",Georgia,serif;margin-bottom:24px}
+aside h1{font:700 2rem/1.15 "Source Serif 4",Georgia,serif;margin:0 0 8px}
+aside .role{margin:0;color:var(--side-muted)}
+.facts{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:10px;font-size:.95rem;color:var(--side-muted)}
+.facts strong{color:var(--side-ink);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:10px 18px;border-radius:6px;font-weight:600;text-decoration:none;border:1px solid var(--side-muted);color:var(--side-ink);font-size:.95rem}
+.btn:hover{border-color:var(--side-ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+main{padding:72px clamp(24px,6vw,88px);max-width:880px}
+section+section{margin-top:64px}
+h2{font:700 1.6rem/1.2 "Source Serif 4",Georgia,serif;margin:0 0 16px}
+.lead{font:600 1.5rem/1.4 "Source Serif 4",Georgia,serif;margin:0 0 24px;max-width:36em}
+p{max-width:65ch;color:var(--muted);margin:0 0 16px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);background:var(--surface);border-radius:8px;overflow:hidden}
+.skills div{padding:20px 22px;border-right:1px solid var(--line)}
+.skills div:last-child{border-right:0}
+.skills h3{margin:0 0 6px;font-size:1rem}
+.skills p{margin:0;font-size:.95rem}
+.timeline{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 28px 8px}
+.timeline li::before{content:"";position:absolute;left:-30px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.timeline h3{margin:0;font-size:1.05rem}
+.timeline .when{color:var(--muted);font-size:.9rem;margin:2px 0 6px}
+.timeline p{margin:0}
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;height:auto;padding:40px 24px;gap:28px}
+  main{padding:48px 24px}
+  .skills div{border-right:0;border-bottom:1px solid var(--line)}
+  .skills div:last-child{border-bottom:0}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div>
+      <div class="avatar" aria-hidden="true">AG</div>
+      <h1>Abhishek Gautam</h1>
+      <p class="role">AI Student | Aspiring AI Developer</p>
+      <ul class="facts">
+        <li><strong>Location</strong><br>Kathmandu, Nepal</li>
+        <li><strong>Focus</strong><br>Artificial Intelligence</li>
+        <li><strong>Status</strong><br>Learning and building</li>
+      </ul>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="mailto:gautamabhishek2065@gmail.com">Email me</a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <p class="lead">I’m an AI student working toward a career as an AI developer.</p>
+      <p>I’m passionate about technology, programming, and exploring the world of Artificial Intelligence.</p>
+      <p>I’m focused on learning and building personal projects, and I enjoy solving problems one step at a time.</p>
+    </section>
+
+    <section id="skills">
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div><h3>Programming</h3><p>Python (Beginner), HTML &amp; CSS (Learning), JavaScript (Learning)</p></div>
+        <div><h3>Tools</h3><p>Git &amp; GitHub, VS Code, AI tools and ChatGPT</p></div>
+        <div><h3>Strengths</h3><p>Problem-solving, learning new skills, building personal projects</p></div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <h2>Learning path</h2>
+      <ul class="timeline">
+        <li><h3>Python</h3><div class="when">Beginner</div><p>Learning the fundamentals as a base for AI work.</p></li>
+        <li><h3>Web development</h3><div class="when">Learning</div><p>Practising HTML, CSS and JavaScript.</p></li>
+        <li><h3>Personal projects</h3><div class="when">Ongoing</div><p>Building small projects to apply what I learn, using Git and GitHub.</p></li>
+      </ul>
+    </section>
+  </main>
+</div>
+</body>
+</html>
